@@ -1,0 +1,16 @@
+#echo syx is a good body | sed 's/syx/zsf/'
+#zsf is a good body
+  
+
+#echo syx is a good body | sed 's/syx/zsf/'
+#Camus is worldly
+
+
+
+#echo Tolstoy is worldly | sed 's/T.*y/Camus/'
+#Camus  因为worldly里面也有y
+
+
+常用脚本命令:
+1 合并指定文件夹下面所有的文件，如果文件夹下有目录，则递归找到所有文件，合并为一个文件。 # find . -type f -exec cat {} \;>all_files.txt  
+2 find命令查找特定文件，并通过-exec 选项将其按照原来的目录树打包成压缩文件              # find ./ -type f -name "*.txt" -exec tar -uf myarchives.tar '{}' \;

@@ -1,1 +1,34 @@
 less ~/.ssh
+
+
+#sed篇
+'s///'替换命令
+  sed -e 's/<[^>]*>//g'   * 查找<>格式删除<>
+  sed -e 's/<.*>//g' myfile.txt  * 并不能正确操作
+  sed -e 's/foo/bar/' myfile.txt  * 替换命令:该操作将每行第一次出现的foo用bar替换,将内容输出到标准输出
+  sed -e 's/foo/bar/g' myfile.txt 附加的 'g' * 选项告诉 sed 执行全局替换  
+  sed -e 's/.*/ralph said: &/' myfile.txt  * 每一行前面加上短语 "ralph said: 引用匹配规则表达式的部分或全部，并使用这些部分来构造替换字符串
+
+
+  's///'结合地址使用:
+  sed -e '1,10s/enchantment/entrapment/g' myfile2.txt  * 将第一到第十行(包括这两行)替换所有'enchantment'为 'entrapment' 
+  sed -e '/^$/,/^END/s/hills/mountains/g' myfile3.txt   * 用 'mountains' 替换 'hills',只从空行开始，到以三个字符 'END' 开始的行结束（包括这两行）的文本块
+
+  
+  's///'并不是非要用三个///
+  '/' 分隔符有许多替换选项。如果正在执行字符串替换，并且规则表达式或替换字符串中有许多斜杠，则可以通过在 's' 之后指定一个不同的字符来更改分隔符。
+   sed -e 's:/usr/local:/usr:g' 
+
+
+'s///'删除命令
+   sed -e '1,10d' /etc/services | more    * sed 将删除输出的第 1 到 10 行
+   sed -e '/^#/d' /etc/services           * sed 删除以 '#' 开始的行
+   上述新的规则表达式地址。规则表达式地址总是由斜杠括起。它们指定一种模式，紧跟在规则表达式地址之后的命令将仅适用于正好与该特定模式匹配的行
+   try: sed -e '/regexp/d' /path/to/my/test/file | more
+  
+   '-n' 选项，该选项告诉 sed 除非明确要求打印模式空间
+   sed -n -e 's/^wh//p' myfile.txt
+
+   
+ 
+  

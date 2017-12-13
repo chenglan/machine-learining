@@ -1,4 +1,4 @@
-
+https://git-scm.com/book/zh/v1/Git-基础-查看提交历史   
 1-如何修改git提交的用户名和密码
   git 修改当前的project的用户名的命令为：git config user.name 你的目标用户名;
   git 修改当前的project提交邮箱的命令为：git config user.email 你的目标邮箱名;
@@ -14,4 +14,42 @@
    修改远程仓库的方法:
    1.先删除 git remote rm origin   2.再添加 git remote add origin  https://github.com/chenglansky/machine-learining.git (或者直接修改:config文件中的远程仓库)
    git remote show origin 查看远程仓库 
+   git log 有许多选项可以帮助你搜寻感兴趣的提交，我们常用 -p 选项展开显示每次提交的内容差异，用 -2 则仅显示最近的两次更新:git log -p -2
+   git log --stat 显示简要的增改行数统计
+
+
+3- 创建远程分支 
+
+
+
+
+4- 查看配置信息
+   要检查已有的配置信息，可以使用 git config --list 命令：
+   查阅某个环境变量的设定，只要把特定的名字跟在其后,例如:git config user.email  git config user.name
+
+5- 查看帮助信息
+   git help config(学习config命令) git config --help 或man git-config
+   三种格式如下:
+   $ git help <verb>
+   $ git <verb> --help
+   $ man git-<verb>
+
+
+6- git clone
+   希望在克隆的时候，自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字
+   例如:git clone git://github.com/schacon/grit.git mygrit
+
+   Git 支持许多数据传输协议。之前的例子使用的是 git:// 协议，不过你也可以用 http(s):// 或者 user@server:/path.git 表示的 SSH 传输协议
+
+
+7- git status 和 git diff
+   git status 列出修改过的文件， git diff 则查看具体修改了什么地方:比较的是工作目录中当前文件和暂存区域快照之间的差异
+
+
+8- 删除文件
+   git mv README.txt README
+  
+
+注意事项:
+  请一定要确认还有什么修改过的或新建的文件还没有 git add 过，否则提交的时候不会记录这些还没暂存起来的变化。所以，每次准备提交前，先用 git status 看下，是不是都已暂存起来了，然后再运行提交命令 git commit
 
